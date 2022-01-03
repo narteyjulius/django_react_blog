@@ -1,0 +1,11 @@
+them/
+them
+blog_project/
+blog_project
+media/
+media
+db.sqlite3/
+db.sqlite3
+
+__pycache__
+__init__.py
