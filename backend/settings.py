@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-$d33f=t(+bf50pn0b_@lg$@47vhtfiw-_6@9u&e507ig40(fyd
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','https://djanoreact.herokuapp.com']
 
 
 # Application definition
