@@ -40,7 +40,7 @@ const BlogDetail = ({ setAlert }) => {
 		setLoading(true);
 		axios
 			.post(
-				'http://localhost:8000/comment/api/create/' + id,
+				'https://djanoreact.herokuapp.com/comment/api/create/' + id,
 				{
 					name,
 					email,
@@ -67,7 +67,7 @@ const BlogDetail = ({ setAlert }) => {
 			setTimeout(() => {
 				const fetchData = async () => {
 					try {
-						const response = await axios.get('http://localhost:8000/comment/api/' + id);
+						const response = await axios.get('https://djanoreact.herokuapp.com/comment/api/' + id);
 						console.log(response);
 						setComments(response.data);
 						setIsPending(false);
@@ -87,7 +87,7 @@ const BlogDetail = ({ setAlert }) => {
 			setTimeout(() => {
 				const fetchData = async () => {
 					try {
-						const response = await axios.get('http://localhost:8000/blog/api/' + id);
+						const response = await axios.get('https://djanoreact.herokuapp.com/blog/api/' + id);
 						console.log(response);
 						setBlogs(response.data);
 						setIsPending(false);
