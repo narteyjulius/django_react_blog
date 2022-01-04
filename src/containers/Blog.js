@@ -18,7 +18,7 @@ const Blog = () => {
 		setTimeout(() => {
 			const fetchData = async () => {
 				try {
-					const response = await axios.get('https://djanoreact.herokuapp.com/api/');
+					const response = await axios.get('https://djanoreact.herokuapp/api/');
 					console.log(response);
 					setBlogs(response.data);
 					setIsPending(false);
