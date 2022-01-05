@@ -31,7 +31,7 @@ const Contact = ({ setAlert }) => {
 		setLoading(true);
 		axios
 			.post(
-				'http://localhost:8000/contact/api/',
+				'https://djanoreact.herokuapp.com/contact/api/',
 				{
 					name,
 					email,
