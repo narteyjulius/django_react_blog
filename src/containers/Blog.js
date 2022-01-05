@@ -27,7 +27,7 @@ const Blog = () => {
 				}
 			};
 			fetchData();
-		}, 5000);
+		});
 	}, []);
 
 	return (

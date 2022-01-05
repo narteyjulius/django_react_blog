@@ -77,7 +77,7 @@ const BlogDetail = ({ setAlert }) => {
 					}
 				};
 				fetchData();
-			}, 5000);
+			});
 		},
 		[ id ]
 	);
@@ -96,7 +96,7 @@ const BlogDetail = ({ setAlert }) => {
 					}
 				};
 				fetchData();
-			}, 5000);
+			});
 		},
 		[ id ]
 	);
