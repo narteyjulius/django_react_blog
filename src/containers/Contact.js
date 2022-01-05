@@ -16,6 +16,7 @@ const Contact = ({ setAlert }) => {
 		name: '',
 		email: '',
 		subject: '',
+		// subject: '',
 		message: ''
 	});
 	const { name, email, subject, message } = formData;
