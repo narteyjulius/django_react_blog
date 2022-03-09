@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from django.template.defaultfilters import slugify
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class Categories(models.TextChoices):
     WORLD = 'world'
@@ -32,6 +33,9 @@ class BlogPost(models.Model):
     featured = models.BooleanField(default=False)
     date_created = models.DateTimeField(default=datetime.now, blank=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
+
+    body = RichTextUploadingField(blank=True, null=True,)
+    body2 = RichTextUploadingField(blank=True, null=True, config_name='special')
 
     def save(self, *args, **kwargs):
         original_slug = slugify(self.title)

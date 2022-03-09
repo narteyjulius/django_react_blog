@@ -4,18 +4,14 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-$d33f=t(+bf50pn0b_@lg$@47vhtfiw-_6@9u&e507ig40(fyd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','djanoreact.herokuapp.com']
+# ALLOWED_HOSTS = ['*','0.0.0.0', 'localhost', '127.0.0.1','djanoreact.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -41,7 +37,47 @@ INSTALLED_APPS = [
     'contact',
     'blog',
     'comments',
+
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_UPLOAD_PATH = "ckeditor"
+
+CKEDITOR_CONFIGS = {
+    "default": {
+        'toolbar': 'Custom',
+        'height': 'auto',
+        'width': 'auto',
+        # 'skin': 'moono',
+        # 'skin': 'kama',
+        'toolbar_Custom': [
+            ['Bold', '-','Image'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source','codesnippet'],
+
+        ],
+       
+    },
+    'special': {
+        'toolbar': 'Special',
+        # 'height': 'auto',
+        # 'width': 'auto',
+        'skin': 'moono',
+        'toolbar_Special': [
+            ['Bold', 'Image','Link','Unlink', 'CodeSnippet'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['RemoveFormat', 'Source','codesnippet'],
+
+
+        ],
+        'extraPlugins':'codesnippet',
+    }
+
+}
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,23 +115,23 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dav5716l77q3op',
-        'USER': 'sbdmdkzslnsvha',
-        'PASSWORD':'9d751322ba9ead9160912b8467ac1b8837b61ada144fa8c6710f560e61e9eba0',
-        'HOST': 'ec2-54-156-121-167.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'dav5716l77q3op',
+#         'USER': 'sbdmdkzslnsvha',
+#         'PASSWORD':'9d751322ba9ead9160912b8467ac1b8837b61ada144fa8c6710f560e61e9eba0',
+#         'HOST': 'ec2-54-156-121-167.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # DATABASES = {

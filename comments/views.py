@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework import permissions
 from rest_framework.views import APIView
@@ -23,6 +23,16 @@ def comment_list(request, post):
 
 
 
+@api_view(['POST'])
+def comment_create(request, slug):
+    post_instance = get_object_or_404(BlogPost, slug=slug)
+    request.data['post'] = post_instance.pk
+    serializer = CommentCreateSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class CommentListView(APIView):
@@ -41,9 +51,7 @@ class CommentListView(APIView):
 
 
 class CreateComments(APIView):
-    permission_classes = (permissions.AllowAny, )
-
-
+    permission_classes = (permissions.AllowAny,)
     def post(self,request, slug):
         post_instance = get_object_or_404(BlogPost, slug=slug)
         request.data['post'] = post_instance.pk
@@ -53,13 +61,3 @@ class CreateComments(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-@api_view(['POST'])
-def comment_create(request, slug):
-    post_instance = get_object_or_404(BlogPost, slug=slug)
-    request.data['post'] = post_instance.pk
-    serializer = CommentCreateSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

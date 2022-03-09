@@ -1,11 +1,7 @@
-from rest_framework.response import Response
 from rest_framework import permissions
-from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from blog.models import BlogPost
 from blog.serializers import BlogPostSerializer 
-from rest_framework import viewsets
-from rest_framework.decorators import api_view
 
 
 
