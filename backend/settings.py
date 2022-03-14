@@ -4,7 +4,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-$d33f=t(+bf50pn0b_@lg$@47vhtfiw-_6@9u&e507ig40(fyd'
+SECRET_KEY = '-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -122,28 +122,7 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'dav5716l77q3op',
-#         'USER': 'sbdmdkzslnsvha',
-#         'PASSWORD':'9d751322ba9ead9160912b8467ac1b8837b61ada144fa8c6710f560e61e9eba0',
-#         'HOST': 'ec2-54-156-121-167.compute-1.amazonaws.com',
-#         'PORT': '5432',
-#     }
-# }
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'bootshop',
-#         'USER': 'postgres',
-#         'PASSWORD':'12345',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -216,28 +195,8 @@ REST_FRAMEWORK = {
 
         ],
 
-    # 'DEFAULT_PARSER_CLASSES': (
-    #     'rest_framework.parsers.JSONParser',
-    #     'rest_framework.parsers.FormParser',
-    # )
+  
 }
-# REST_FRAMEWORK = {
-#     'DEFAULT_PARSER_CLASSES': (
-#         'rest_framework.parsers.JSONParser',
-#         'rest_framework.parsers.FormParser',
-#     )
-# }
-
-
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'julius.nartey.71@gmail.com'
-EMAIL_HOST_USER = 'sylarnano688@gmail.com'
-EMAIL_HOST_PASSWORD = 'ozaxdfucozadbnyu'
-
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
